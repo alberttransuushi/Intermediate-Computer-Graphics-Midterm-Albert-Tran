@@ -4,6 +4,8 @@ Shader "Custom/ToonRamp"
     {
         _MainTex("Main Texture", 2D) = "white" {}
         _RampTex ("Ramp Texture", 2D) = "white" {}
+        _RimColor("Rim Color", Color) = (0,0.5,0.5,0)
+        _RimPower("Rim Power", Range(0.5,8.0)) = 3.0
     }
         SubShader
     {
@@ -15,6 +17,8 @@ Shader "Custom/ToonRamp"
 
         sampler2D _MainTex;
         sampler2D _RampTex;
+        float4 _RimColor;
+        float _RimPower;
 
         float4 LightingToonRamp(SurfaceOutput s, fixed3 lightDir, fixed atten)
         {
@@ -33,6 +37,8 @@ Shader "Custom/ToonRamp"
         {
             float2 uv_MainTex;
             float2 uv_RampTex;
+            float3 viewDir;
+
         };
 
 
@@ -42,6 +48,9 @@ Shader "Custom/ToonRamp"
             half4 c = tex2D(_MainTex, IN.uv_MainTex);
             o.Albedo = c.rgb;
             o.Alpha = c.a;
+            half rim = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal));
+            o.Emission = 0.1 - _RimColor.rgb * pow(rim, _RimPower);
+
 
 
         }
