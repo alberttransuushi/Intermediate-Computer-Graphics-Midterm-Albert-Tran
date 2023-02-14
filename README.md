@@ -72,5 +72,6 @@ pseudo code:
 You can also find the builds in the build folder of the project.
 
 
+![Build](https://user-images.githubusercontent.com/98855552/218821421-2732c3d2-9724-464a-aca5-36d3dc910ecb.png)
 
 
