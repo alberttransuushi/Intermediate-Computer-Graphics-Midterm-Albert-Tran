@@ -15,7 +15,7 @@ You can find code in:
 
 Code explinations: 
 
-Toon Ramp shader: Added Toon Ramp shader onto the main plane, but not the cock pit, as well as adding it onto the cloud background. I also added reverse rim lighting onto the object. Toon Ramp works by instead of blending colors, it takes color values, and instead of blending those values, essentially clamps certain light to the toon ramp texture I have created. In this case I also used a different ramp texture then usual, as the lighting on the object shown to us in the example is slightly lighter. For the reverse rimlighting, I essentially reversed the colors on the emmission of my object to add a very small black outline to the object, this is too give that slightly "cartoonish" look given to us in the limit. 
+Toon Ramp shader: Added Toon Ramp shader onto the main plane, but not the cock pit, as well as adding it onto the cloud background. I also added reverse rim lighting onto the object. Toon Ramp works by instead of blending colors, it takes color values, and instead of blending those values, essentially clamps certain light to the toon ramp texture I have created. In this case I also used a different ramp texture then usual, as the lighting on the object shown to us in the example is slightly lighter. For the reverse rimlighting, I essentially reversed the colors on the emmission of my object to add a very small black outline to the object, this is too give that slightly "cartoonish" look given to us in the limit. Rim lighting works by taking in the dot product of our view direction and our normal, by focusing more lighting onto the edges of our object based on the viewdir and the normal.
 
 In a basic pseudo code:
 
